@@ -1,0 +1,10 @@
+set_group,description,distinct_count,CM,PO,CE,LO,audit_notes
+PUFFER,PUFFER-only (Net),32,16,6,6,4,"32 of 37 root causes (86.5%) are exclusive to PUFFER; 5 share mechanisms (Tier B) with HULK, PUPPY, or SCor"
+PUFFER (Total),PUFFER Total Unique (Net),37,19,8,6,4,"11 MySQL + 9 MariaDB + 11 TiDB + 6 CockroachDB across all 4 optimizer components"
+SCor,SCor-only (Net),10,0,0,0,10,"13 Net total minus 3 shared mechanism patterns (1 with PUFFER, 1 with HULK, 1 with PUPPY)"
+HULK,HULK-only (Net),7,1,3,0,3,"13 Net total minus 6 shared patterns (2 Tier A + 1 Tier B with PUPPY, 2 with PUFFER+PUPPY, 1 with PUFFER, 1 with SCor)"
+PUPPY,PUPPY-only (Net),5,0,1,0,4,"11 Net total minus 6 shared patterns"
+AMOEBA,"AMOEBA-only (Net, CRDB)",4,0,0,0,4,"CRDB only: nested agg collapse, IS TRUE outer-join, CRDB DISTINCT LEFT JOIN ON TRUE, decorrelated subquery; 0 overlap"
+CERT,"CERT-only (CE strict, 0 Perf)",4,0,0,4,0,"Cardinality estimation bugs only (MySQL 2, TiDB 1, CRDB 1; max 1k slowdown 4.085x -> 0 Perf issues >=10x); 0 overlap"
+SHARED_PATTERNS,Cross-tool shared patterns (Tier A + Tier B),9,3,2,0,4,"5 patterns shared between PUFFER and {HULK, PUPPY, SCor}; 4 patterns shared among {HULK, PUPPY, SCor}"
+UNION (ALL 6 TOOLS),Total distinct issue patterns (Fig. 7a),71,20,10,10,31,"32 PUFFER-only + 5 PUFFER-shared + 34 baseline-only = 71 distinct patterns (PUFFER 37 vs. 5-baseline union 39)"

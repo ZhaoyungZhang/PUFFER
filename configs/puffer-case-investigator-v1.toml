@@ -1,0 +1,55 @@
+# PUFFER Stage II validation connection profiles.
+# Credentials are read only from the environment variables named by each [[profile]] entry.
+
+[paths]
+output_root = "evaluation/stage2_validation"
+local_index_path = "evaluation/stage2_validation/case_index.sqlite3"
+case_roots = ["evaluation", "experiments_data"]
+
+[limits]
+max_rows_per_table = 300000
+max_amplification_trials = 12
+max_total_minutes = 60
+statement_timeout_seconds = 30
+max_result_rows = 5000000
+max_result_bytes = 2147483648
+
+[[profile]]
+name = "mysql-local"
+host = "127.0.0.1"
+port = 34971
+user = "sqlancer"
+password_env = "PUFFER_MYSQL_PASSWORD"
+expected_version_prefix = "9.7.1"
+
+[[profile]]
+name = "mariadb-local"
+host = "127.0.0.1"
+port = 32332
+user = "sqlancer"
+password_env = "PUFFER_MARIADB_PASSWORD"
+expected_version_prefix = "12.3.2"
+
+[[profile]]
+name = "tidb-local"
+host = "127.0.0.1"
+port = 4000
+user = "sqlancer"
+password_env = "PUFFER_TIDB_PASSWORD"
+expected_version_prefix = "8.5.0"
+
+[[profile]]
+name = "cockroachdb-local"
+host = "127.0.0.1"
+port = 26257
+user = "root"
+password_env = "PUFFER_COCKROACHDB_PASSWORD"
+expected_version_prefix = "v26.2.2"
+
+[[profile]]
+name = "oceanbase-local"
+host = "127.0.0.1"
+port = 12881
+user = "sqlancer@sqlancer_perf"
+password_env = "PUFFER_OCEANBASE_PASSWORD"
+expected_version_prefix = "4.5.0"

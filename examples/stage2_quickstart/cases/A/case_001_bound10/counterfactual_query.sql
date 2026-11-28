@@ -1,0 +1,1 @@
+SELECT /*+ JOIN_ORDER(t0, t1) NO_HASH_JOIN(t0, t1) */ t0.c0, t1.c1 FROM t0 INNER JOIN t1 ON t0.c3 = t1.c0 WHERE t0.c0 > 10 AND t0.c2 >= 10 ORDER BY t0.c0 LIMIT 5

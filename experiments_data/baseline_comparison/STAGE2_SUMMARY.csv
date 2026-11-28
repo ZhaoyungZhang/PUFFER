@@ -1,0 +1,14 @@
+job_id,tool,database,reference,raw_candidates,L0,L0_parsed,L1_exact,L2_families,unsupported,L0_gen,L1_gen,L2_gen
+01-hulk-tidb,hulk,tidb,cockroachdb,16,16,16,11,9,0,13,9,7
+02-scor-mysql,scor,mysql,,1355,1355,1355,52,9,0,1355,52,9
+03-puppy-mariadb,puppy,mariadb,,131,131,131,7,7,0,124,3,3
+04-hulk-mariadb,hulk,mariadb,mysql,22,22,22,14,11,0,16,10,8
+05-amoeba-cockroachdb,amoeba,cockroachdb,,41,41,41,24,22,0,41,24,22
+06-puppy-tidb,puppy,tidb,,17,17,17,3,2,0,16,2,1
+07-hulk-mysql,hulk,mysql,mariadb,41,41,41,21,17,0,35,16,12
+08-scor-tidb,scor,tidb,,697,697,697,27,2,0,697,27,2
+09-puppy-cockroachdb,puppy,cockroachdb,,16,16,16,9,6,0,10,3,3
+10-hulk-cockroachdb,hulk,cockroachdb,tidb,24,24,24,19,15,0,19,15,12
+11-scor-mariadb,scor,mariadb,,1082,1082,1082,312,6,0,1082,312,6
+12-puppy-mysql,puppy,mysql,,138,138,138,10,10,0,130,5,5
+13-scor-cockroachdb,scor,cockroachdb,,283,283,283,104,2,0,283,104,2

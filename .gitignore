@@ -1,0 +1,39 @@
+# Maven build artifacts
+target/
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle & WeTune worker build artifacts
+.gradle/
+tools/wetune-static-worker/.gradle/
+tools/wetune-static-worker/build/
+
+# Keep prebuilt WeTune core JARs and rule bank tracked for zero-dependency builds
+!third_party/wetune/lib/*.jar
+!third_party/wetune/wtune_data/prepared/rules.txt
+
+# Runtime logs and temporary databases
+logs/
+*.log
+databases/
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.venv/
+venv/
+
+# IDE and OS files
+.idea/
+.vscode/
+.classpath
+.project
+.factorypath
+.DS_Store
+Thumbs.db

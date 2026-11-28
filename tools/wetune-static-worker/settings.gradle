@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'wetune-static-worker'
+
+if (file('../../third_party/wetune/settings.gradle').exists()) {
+    includeBuild('../../third_party/wetune')
+}

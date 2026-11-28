@@ -1,0 +1,8 @@
+external_tool,scope,oracle_type,raw_reports,l1_groups,l2_families,l2_reduction_pct,top1_family_recall_pct,distinct_root_cause_recall_pct,stage2_impact
+PUPPY,4 DBMSs,plan_comparison,302,29,25,91.7%,100.0%,85.7%,12.1x cut
+HULK,4 DBMSs,plan_comparison,103,65,52,49.5%,97.3%,93.1%,2.0x cut
+AMOEBA,CockroachDB,plan_comparison,41,24,22,46.3%,88.9%,80.0%,1.9x cut
+SCor,4 DBMSs,non_plan_delta,3417,495,19,99.4%,78.9%,29.4%,180x cut
+CERT,3 DBMSs,non_plan_delta,751,83,54,92.8%,75.0%,50.0%,84.8% FP cut
+Plan-Comparing Subtotal (3 Tools),9 Campaigns,plan_comparison,446,118,99,77.8%,97.2%,88.7%,4.5x cut
+Total (5 Tools),16 Campaigns,all,4614,696,172,96.3%,91.8%,67.0%,26.8x cut

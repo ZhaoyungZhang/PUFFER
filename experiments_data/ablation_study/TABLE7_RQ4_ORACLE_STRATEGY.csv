@@ -1,0 +1,5 @@
+oracle_variant,reported_ppis,ge100x_ppis,l3_validation_time_min,family_recall_pct,precision_pct,true_positives,notes
+Large-only (10x),63,8,39.7,19.0%,98.4%,62,"Direct 10x testing (115,138 variants evaluated); misses 89.2% of >=100x issues"
+Without L2 (all L1),332,-,536.1,100.0%,94.3%,313,"Validates all 2,980 L1 groups (1,060 passing L1 outputs grouped into 332 distinct L2 families)"
+Without L3 (Stage I + L2),748,-,0.0,75.3%,32.4%,242,"Emits all 748 L2 representatives directly without L3 two-scale replay (492 failed L3 noise + 14 strict FPs)"
+PUFFER (Full),256,74,176.6,75.3%,94.5%,242,"L1-L2 consolidation + L3 two-scale replay (179 Amplified, 10 Activated, 67 Sustained; 67.1% L3 time reduction)"

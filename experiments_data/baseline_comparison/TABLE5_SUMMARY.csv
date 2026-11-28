@@ -1,0 +1,7 @@
+tool,scale_rows,test_cases_per_h,mysql_ppis,mysql_unique,mysql_ge10x,mariadb_ppis,mariadb_unique,mariadb_ge10x,tidb_ppis,tidb_unique,tidb_ge10x,cockroachdb_ppis,cockroachdb_unique,cockroachdb_ge10x,overall_ppis,overall_unique,overall_ge10x,overall_ge100x,median_slowdown_x
+AMOEBA,100K,0.2K,-,-,-,-,-,-,-,-,-,41,4,1,41,4,1,0,5.0
+CERT,1K,2.9M,472,2,0,-,-,-,248,1,0,31,1,0,751,4,0,0,1.4
+PUPPY,50K,1.1K,138,5,2,131,2,1,17,1,0,16,3,1,302,11,4,0,9.5
+HULK,50K,0.6K,41,5,2,22,2,0,16,3,2,24,3,1,103,13,5,0,8.2
+SCor,1M,1.6K,1355,4,4,1082,5,5,697,2,2,283,2,2,3417,13,13,10,2532.8
+PUFFER,1K-10K,31.9K,165,11,11,146,9,9,38,11,9,62,6,6,411,37,35,21,183.7

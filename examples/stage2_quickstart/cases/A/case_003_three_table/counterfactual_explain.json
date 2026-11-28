@@ -1,0 +1,41 @@
+{
+  "json_schema_version": "2.0",
+  "query_type": "select",
+  "query_plan": {
+    "access_type": "join",
+    "join_type": "inner join",
+    "join_algorithm": "nested_loop",
+    "operation": "Nested loop inner join",
+    "inputs": [
+      {
+        "access_type": "join",
+        "join_type": "inner join",
+        "join_algorithm": "nested_loop",
+        "operation": "Nested loop inner join",
+        "inputs": [
+          {
+            "access_type": "index",
+            "table_name": "t0",
+            "index_name": "PRIMARY",
+            "index_access_type": "index_range_scan",
+            "operation": "Index range scan on t0"
+          },
+          {
+            "access_type": "index",
+            "table_name": "t1",
+            "index_name": "idx_t1_c0",
+            "index_access_type": "index_lookup",
+            "operation": "Index lookup on t1 using idx_t1_c0"
+          }
+        ]
+      },
+      {
+        "access_type": "index",
+        "table_name": "t2",
+        "index_name": "PRIMARY",
+        "index_access_type": "index_lookup",
+        "operation": "Single-row index lookup on t2"
+      }
+    ]
+  }
+}

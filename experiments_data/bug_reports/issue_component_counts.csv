@@ -1,0 +1,6 @@
+dbms,LO,CE,CM,PO
+MySQL,3,3,2,7
+MariaDB,3,1,5,1
+TiDB,8,1,5,4
+CockroachDB,5,1,0,1
+OceanBase,5,1,0,0

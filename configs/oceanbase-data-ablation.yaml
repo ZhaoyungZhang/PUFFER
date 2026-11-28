@@ -1,0 +1,49 @@
+# Five serial data-generation ablation arms: each finishes Stage I discovery,
+# schema cleanup, and Stage II (L1-L3) validation before the next arm begins.
+dbms: oceanbase
+data_profiles: [random, column, column-intra, column-inter, full]
+duration_seconds: 3600
+output_root: evaluation/data_ablation
+connection_config: configs/puffer-case-investigator-v1.toml
+connection_profile: oceanbase-local
+
+java:
+  query_generator_mode: mixed
+  workers: 8
+  num_queries: 64
+  repeat_count: 5
+  query_timeout_seconds: 5
+  explain_analyze: true
+  predicate_binding_probability: 0.5
+  query_rewrite_provider: wetune-static
+  wetune_static_worker: tools/wetune-static-worker/build/install/wetune-static-worker/bin/wetune-static-worker
+  wetune_static_timeout_ms: 250
+
+generator:
+  min_tables: 2
+  max_tables: 4
+  min_rows_per_table: 100
+  max_rows_per_table: 1000
+  max_indexes_per_table: 3
+
+oracle:
+  harmful_runtime_ratio: 3.0
+  cost_anomaly_ratio: 10.0
+  runtime_ratio_lower: 0.9
+  runtime_ratio_upper: 1.3
+  cost_ratio_lower: 0.9
+  cost_ratio_upper: 1.1
+  # Sub-millisecond clock-jitter / divide-by-zero guard (not a 100ms/500ms floor).
+  min_runtime_ms: 0.2
+  min_gap_ms: 0.5
+
+validation:
+  cluster_similarity: 0.7
+  scale: 10
+  warmups: 1
+  rounds: 5
+  query_timeout_seconds: 20
+  min_speedup: 3.0
+  scaled_min_gap_ms: 5.0
+  amplification_gap_multiplier: 2.0
+  min_win_fraction: 0.8

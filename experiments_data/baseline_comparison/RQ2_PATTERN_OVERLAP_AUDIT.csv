@@ -1,0 +1,11 @@
+overlap_set,tier,dbms,pattern_count,family_ids,mechanism_description
+HULK ∩ PUPPY,Tier A (exact bug),MySQL,1,HULK mysql-A-L2-00004 == PUPPY mysql-A-L2-00010,Missing PK/UNIQUE LEFT JOIN elimination under SELECT COUNT(*) in simplify_joins()
+HULK ∩ PUPPY,Tier A (exact bug),CockroachDB,1,HULK cockroachdb-A-L2-00007 == PUPPY cockroachdb-A-L2-00006,EXCEPT right branch uses idx_b + index-join PK lookup instead of covering scan idx_ab
+PUFFER ∩ HULK ∩ PUPPY,Tier B (shared mechanism),MySQL,1,PUFFER MYSQL-RC01_DISTINCT_REDUNDANT_LEFT_JOIN <-> HULK mysql-A-L2-00004 == PUPPY mysql-A-L2-00010,Missing unreferenced LEFT JOIN table elimination in simplify_joins() (DISTINCT vs COUNT(*) PK)
+PUFFER ∩ HULK ∩ PUPPY,Tier B (shared mechanism),TiDB,1,PUFFER TIDB-RC10_CE_NONLIMIT_INL_HASHJOIN_VS_HJ <-> HULK tidb-A-L2-00004 <-> PUPPY tidb-A-L2-00002,Non-LIMIT skew-blind IndexHashJoin probe/cost bias over HashJoin/MergeJoin
+PUFFER ∩ PUPPY,Tier B (shared mechanism),MySQL,1,PUFFER MYSQL-RC10_CM_ORDER_BY_LIMIT_JOIN_COST <-> PUPPY mysql-A-L2-00006,ORDER BY ... LIMIT prefer_ordering_index / test_if_skip_sort_order() skip-sort row-goal cost inversion
+PUFFER ∩ HULK,Tier B (shared mechanism),CockroachDB,1,PUFFER CRDB-RC02_CM_DISTINCT_TOPN_INDEX_LIMIT_VS_TOPK <-> HULK cockroachdb-A-L2-00002,Cascades limit hint / SOFT LIMIT row-goal cost discounting under ORDER BY ... LIMIT
+PUFFER ∩ SCor,Tier B (shared mechanism),MariaDB,1,PUFFER MARIADB-RC08_CM_ORDER_BY_LIMIT_JOIN_ORDER <-> SCor mariadb-A-L2-00005,ORDER BY ... LIMIT BNL + temporary_table + filesort blocking early sorted row streaming
+HULK ∩ PUPPY,Tier B (shared mechanism),MySQL,1,HULK mysql-A-L2-00003 <-> PUPPY mysql-A-L2-00008,Nested EXISTS/semi-join LooseScan vs Materialize strategy and cardinality selection
+HULK ∩ SCor,Tier B (shared mechanism),TiDB,1,HULK tidb-A-L2-00006 <-> SCor tidb-A-L2-00001,"Rigid INTERSECT -> HashJoin(semi join, Build=right, Probe=HashAgg(left)) lowering"
+PUPPY ∩ SCor,Tier B (shared mechanism),CockroachDB,1,PUPPY cockroachdb-NET-gen-1 (in cockroachdb-A-L2-00002) <-> SCor cockroachdb-A-L2-00002,Cascades EXISTS decorrelation into distinct-on + inner-join (hash) materializing full subquery side
